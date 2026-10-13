@@ -1,0 +1,22 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/contact"
+  to = "/enquire"
+  status = 301
+
+[[redirects]]
+  from = "/Landing%20Page.dc.html"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/Book%20a%20Call.dc.html"
+  to = "/book"
+  status = 301
+
+[[redirects]]
+  from = "/Enquire.dc.html"
+  to = "/enquire"
+  status = 301
