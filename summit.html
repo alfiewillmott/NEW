@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2MBMTBF6DT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2MBMTBF6DT');
+</script>
+<link rel="canonical" href="https://sparqdesign.co.uk/summit">
+<script type="application/ld+json" id="sq-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://sparqdesign.co.uk/#org","name":"Sparq","url":"https://sparqdesign.co.uk/"},{"@type":"WebPage","url":"https://sparqdesign.co.uk/summit","name":"Summit Consulting — Sparq case study","isPartOf":{"@id":"https://sparqdesign.co.uk/#website"},"publisher":{"@id":"https://sparqdesign.co.uk/#org"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://sparqdesign.co.uk/"},{"@type":"ListItem","position":2,"name":"Summit case study","item":"https://sparqdesign.co.uk/summit"}]},{"@type":"CreativeWork","name":"Summit website","url":"https://sparqdesign.co.uk/summit","creator":{"@id":"https://sparqdesign.co.uk/#org"},"genre":"Web design"}]}</script>
 <title>Summit Consulting — Sparq case study</title>
 <meta name="description" content="Case study: a new website for Summit Consulting, a sales growth consultancy, designed and built by Sparq.">
 <meta name="theme-color" content="#000000">
@@ -128,7 +138,7 @@ document.addEventListener('click', function(e){
         er.innerHTML = 'Sorry, that didn\u2019t send. Please try again or email <a href="mailto:hello@sparqdesign.co.uk" style="color:#FFFFFF;text-decoration:underline;">hello@sparqdesign.co.uk</a>.';
         f.appendChild(er); return;
       }
-      f.__sqSent = true;
+      f.__sqSent = true; try{ var fn=(f.elements.name&&f.elements.name.value||'').trim().split(/\s+/)[0]; sessionStorage.setItem('sq-name', fn); }catch(_){} location.href = '/thank-you'; return;
       [].slice.call(f.children).forEach(function(c){ c.style.display = 'none'; });
       var m = document.createElement('div');
       m.setAttribute('role','status'); m.setAttribute('aria-live','polite');
@@ -449,7 +459,7 @@ class Component extends DCLogic {
             f.appendChild(er);
             return;
           }
-          f.__sqSent = true;
+          f.__sqSent = true; try{ var fn=(f.elements.name&&f.elements.name.value||'').trim().split(/\s+/)[0]; sessionStorage.setItem('sq-name', fn); }catch(_){} location.href = '/thank-you'; return;
           [].slice.call(f.children).forEach(function(c){ c.style.display = 'none'; });
           var m = document.createElement('div');
           m.setAttribute('role', 'status'); m.setAttribute('aria-live', 'polite');

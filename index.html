@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2MBMTBF6DT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2MBMTBF6DT');
+</script>
+<link rel="canonical" href="https://sparqdesign.co.uk/">
+<script type="application/ld+json" id="sq-schema">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://sparqdesign.co.uk/#org","name":"Sparq","url":"https://sparqdesign.co.uk/","logo":"https://sparqdesign.co.uk/sparq-logo-dark.png","email":"hello@sparqdesign.co.uk"},{"@type":"WebSite","@id":"https://sparqdesign.co.uk/#website","url":"https://sparqdesign.co.uk/","name":"Sparq","publisher":{"@id":"https://sparqdesign.co.uk/#org"}},{"@type":"ProfessionalService","@id":"https://sparqdesign.co.uk/#service","name":"Sparq","url":"https://sparqdesign.co.uk/","email":"hello@sparqdesign.co.uk","image":"https://sparqdesign.co.uk/sparq-logo-dark.png","priceRange":"££","areaServed":{"@type":"Country","name":"United Kingdom"},"parentOrganization":{"@id":"https://sparqdesign.co.uk/#org"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Website packages","itemListElement":[{"@type":"Offer","name":"Essential","description":"A single, focused page to get your business online fast.","price":"299","priceCurrency":"GBP","itemOffered":{"@type":"Service","name":"Essential website"}},{"@type":"Offer","name":"Premium","description":"Unlimited pages, launched in 7 days.","price":"399","priceCurrency":"GBP","itemOffered":{"@type":"Service","name":"Premium website"}},{"@type":"Offer","name":"Legacy","description":"A bespoke site built in Squarespace, up to 5 pages.","price":"1999","priceCurrency":"GBP","itemOffered":{"@type":"Service","name":"Legacy website"}}]}},{"@type":"WebPage","url":"https://sparqdesign.co.uk/","name":"Sparq — Premium websites in seven days","isPartOf":{"@id":"https://sparqdesign.co.uk/#website"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can you really build it in seven days?","acceptedAnswer":{"@type":"Answer","text":"Yes. Once your content and brand assets are with us, design and build run in parallel across a fixed seven-day sprint with two review points."}},{"@type":"Question","name":"What do you need from me to start?","acceptedAnswer":{"@type":"Answer","text":"A short brief, your logo files if you have them, and any copy or imagery you want used. If copy is missing, Premium includes writing it for you."}},{"@type":"Question","name":"Is the price really fixed?","acceptedAnswer":{"@type":"Answer","text":"The package price is what you pay. Scope is agreed up front, and anything beyond it is quoted separately before work begins."}},{"@type":"Question","name":"Can I edit the site myself?","acceptedAnswer":{"@type":"Answer","text":"Every build ships on a friendly editor so you can update text, images and pages without touching code."}},{"@type":"Question","name":"What happens after launch?","acceptedAnswer":{"@type":"Answer","text":"Essential includes a two-week snagging window. Premium adds two months of support for tweaks, fixes and small additions."}}]}]}</script>
 <title>Sparq — Premium websites in seven days</title>
 <meta name="description" content="Sparq is a premium digital design studio. Brand and website design that elevates perceived value and commands higher prices. Built in seven days.">
 <meta name="theme-color" content="#000000">
@@ -131,7 +141,7 @@ document.addEventListener('click', function(e){
         er.innerHTML = 'Sorry, that didn\u2019t send. Please try again or email <a href="mailto:hello@sparqdesign.co.uk" style="color:#FFFFFF;text-decoration:underline;">hello@sparqdesign.co.uk</a>.';
         f.appendChild(er); return;
       }
-      f.__sqSent = true;
+      f.__sqSent = true; try{ var fn=(f.elements.name&&f.elements.name.value||'').trim().split(/\s+/)[0]; sessionStorage.setItem('sq-name', fn); }catch(_){} location.href = '/thank-you'; return;
       [].slice.call(f.children).forEach(function(c){ c.style.display = 'none'; });
       var m = document.createElement('div');
       m.setAttribute('role','status'); m.setAttribute('aria-live','polite');
@@ -925,7 +935,7 @@ class Component extends DCLogic {
             f.appendChild(er);
             return;
           }
-          f.__sqSent = true;
+          f.__sqSent = true; try{ var fn=(f.elements.name&&f.elements.name.value||'').trim().split(/\s+/)[0]; sessionStorage.setItem('sq-name', fn); }catch(_){} location.href = '/thank-you'; return;
           [].slice.call(f.children).forEach(function(c){ c.style.display = 'none'; });
           var m = document.createElement('div');
           m.setAttribute('role', 'status'); m.setAttribute('aria-live', 'polite');
