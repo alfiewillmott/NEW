@@ -1,6 +1,6 @@
 # Sparq website
 
-Plain static HTML — no build step, no runtime. Images are embedded.
+Plain static HTML — no build step, no runtime. Images live in `img/` — upload that folder alongside the HTML.
 
 - `/` index.html · `/book` · `/enquire`
 - Case studies: `/rps` `/reed` `/summit` `/interiar`
