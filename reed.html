@@ -79,7 +79,7 @@
   @media (prefers-reduced-motion: reduce){#sq-links a .sq-ul-line,#sq-links a .sq-ul-star{transition:none;}}
 </style>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>if(window.matchMedia('(min-width:761px)').matches)document.write('<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"><\/script>');</script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
@@ -692,7 +692,7 @@ class Component extends DCLogic {
     var footBits  = foot ? [].slice.call(foot.children) : [];
     var badge     = $('sq-badge');
 
-    if (hasGSAP && !reduced){
+    if (hasGSAP && !reduced && window.innerWidth > 760){
       gsap.set(headLines.concat(subLines), {yPercent:112});
       gsap.set([$('sq-logo'), links, $('sq-right')].filter(Boolean), {opacity:0});
       if (badge) gsap.set(badge, {opacity:0, y:14});
