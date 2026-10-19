@@ -11,6 +11,7 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:(function(){try{var v=localStorage.getItem('sq-consent'),at=+localStorage.getItem('sq-consent-at')||0;return v==='granted'&&Date.now()-at<31536e6?'granted':'denied'}catch(e){return 'denied'}})()});
   gtag('js', new Date());
   gtag('config', 'G-2MBMTBF6DT');
 </script>
@@ -960,9 +961,9 @@ document.addEventListener('click', function(e){
         <div style="display:flex;flex-direction:column;gap:clamp(22px,2.4vw,32px);">
           <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#8E9BA3;">Policies /</span>
           <div style="display:flex;flex-direction:column;gap:clamp(14px,1.5vw,20px);">
-            <a class="px52" href="#" style="font-size:clamp(15px,1.3vw,17px);color:#3B4348;letter-spacing:-.01em;transition:color .3s ease;">Privacy policy</a>
+            <a class="px52" href="/privacy" style="font-size:clamp(15px,1.3vw,17px);color:#3B4348;letter-spacing:-.01em;transition:color .3s ease;">Privacy policy</a>
             <a class="px53" href="#" style="font-size:clamp(15px,1.3vw,17px);color:#3B4348;letter-spacing:-.01em;transition:color .3s ease;">Terms &amp; conditions</a>
-            <a class="px54" href="#" style="font-size:clamp(15px,1.3vw,17px);color:#3B4348;letter-spacing:-.01em;transition:color .3s ease;">Cookies policy</a>
+            <a class="px54" href="/cookies" style="font-size:clamp(15px,1.3vw,17px);color:#3B4348;letter-spacing:-.01em;transition:color .3s ease;">Cookies policy</a>
           </div>
         </div>
       </div>
@@ -1518,5 +1519,33 @@ function go(){var c=new Component();var v=c.renderVals?c.renderVals():{};documen
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",go);else go();
 })();
 </script>
+<script>(function(){
+  if (window.sqCookies) return;
+  var K='sq-consent', MAX=365*864e5, el=null;
+  function get(){ try{ var v=localStorage.getItem(K), at=+localStorage.getItem(K+'-at')||0; return (v && Date.now()-at<MAX) ? v : null; }catch(e){ return null; } }
+  function save(v){ try{ localStorage.setItem(K,v); localStorage.setItem(K+'-at',String(Date.now())); }catch(e){} }
+  function clearGa(){ document.cookie.split(';').forEach(function(c){ var n=c.split('=')[0].trim(); if(!/^_ga/.test(n)) return; var h=location.hostname, root=h.split('.').slice(-3).join('.'); ['', h, '.'+h, '.'+root, '.'+h.split('.').slice(-2).join('.')].forEach(function(d){ document.cookie=n+'=; Max-Age=0; path=/'+(d?'; domain='+d:''); }); }); }
+  function apply(v){ if (typeof window.gtag==='function') window.gtag('consent','update',{analytics_storage: v==='granted'?'granted':'denied'}); if (v!=='granted') clearGa(); }
+  function close(){ if(!el) return; var e=el; el=null; e.style.opacity='0'; e.style.transform='translateY(12px)'; setTimeout(function(){ if(e.parentNode) e.parentNode.removeChild(e); },450); }
+  function choose(v){ save(v); apply(v); close(); }
+  function open(){
+    if (el || !document.body) return;
+    el=document.createElement('div'); el.id='sq-cookie'; el.setAttribute('role','region'); el.setAttribute('aria-label','Cookie preferences');
+    el.style.cssText='position:fixed;left:clamp(12px,2vw,24px);bottom:clamp(12px,2vw,24px);z-index:9999;width:min(420px,calc(100vw - 24px));padding:22px;border-radius:14px;background:rgba(14,16,18,.95);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,.12);box-shadow:0 24px 60px -20px rgba(0,0,0,.75);color:#E5E9ED;font-family:"Helvetica Neue","HelveticaNeue",Helvetica,"Segoe UI",Arial,sans-serif;text-align:left;opacity:0;transform:translateY(12px);transition:opacity .4s ease,transform .5s cubic-bezier(.22,1,.36,1);';
+    el.innerHTML='<style>#sq-cookie button{transition:background .3s ease,border-color .3s ease}#sq-cookie [data-c="granted"]:hover{background:#D9E2E8 !important}#sq-cookie [data-c="denied"]:hover{background:rgba(255,255,255,.08) !important;border-color:rgba(255,255,255,.4) !important}#sq-cookie a:hover{color:#00DF91 !important}</style>'
+      + '<p style="margin:0;font-size:17px;font-weight:500;letter-spacing:-.015em;color:#FFFFFF;">Cookies</p>'
+      + '<p style="margin:8px 0 0;font-size:14.5px;font-weight:300;line-height:1.55;color:rgba(255,255,255,.72);">We\u2019d like to use analytics cookies to see how people use our site. They\u2019re only set if you accept. <a href="/cookies" style="color:#FFFFFF;text-decoration:underline;text-underline-offset:3px;">Cookies policy</a></p>'
+      + '<div style="display:flex;gap:10px;margin-top:18px;">'
+      + '<button type="button" data-c="granted" style="flex:1;height:46px;border:0;border-radius:999px;background:#FFFFFF;color:#101215;font:inherit;font-size:15px;font-weight:500;cursor:pointer;">Accept</button>'
+      + '<button type="button" data-c="denied" style="flex:1;height:46px;border:1px solid rgba(255,255,255,.22);border-radius:999px;background:transparent;color:#FFFFFF;font:inherit;font-size:15px;font-weight:500;cursor:pointer;">Reject</button>'
+      + '</div>';
+    el.addEventListener('click', function(e){ var b=e.target.closest && e.target.closest('[data-c]'); if(b) choose(b.getAttribute('data-c')); });
+    document.body.appendChild(el);
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ if(el){ el.style.opacity='1'; el.style.transform='none'; } }); });
+  }
+  window.sqCookies={ open:open, get:get };
+  document.addEventListener('click', function(e){ var t=e.target.closest && e.target.closest('[data-sq-cookie-settings]'); if(t){ e.preventDefault(); open(); } });
+  if (!get()){ if (document.readyState==='loading') document.addEventListener('DOMContentLoaded', open); else open(); }
+})();</script>
 </body>
 </html>
